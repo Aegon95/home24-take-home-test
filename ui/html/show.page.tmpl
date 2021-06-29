@@ -1,0 +1,42 @@
+{{template "base" .}}
+
+{{define "title"}}Stats{{end}}
+
+{{define "main"}}
+            {{if .Stats}}
+             <table>
+                <tr>
+                    <th>Html version</th>
+                    <th>Title</th>
+                    <th>H1</th>
+                    <th>H2</th>
+                    <th>H3</th>
+                    <th>H4</th>
+                    <th>H5</th>
+                    <th>H6</th>
+                    <th>No of Internal Links</th>
+                    <th>No of External Links</th>
+                    <th>No of inaccessible Links</th>
+                    <th>Has login</th>
+                </tr>
+                {{with .Stats}}
+                <tr>
+                    <td>{{.HTMLVersion}}</a></td>
+                    <td>{{.Title}}</td>
+                    <td>{{.H1Count}}</td>
+                    <td>{{.H2Count}}</td>
+                    <td>{{.H3Count}}</td>
+                    <td>{{.H4Count}}</td>
+                    <td>{{.H5Count}}</td>
+                    <td>{{.H6Count}}</td>
+                    <td>{{.InternalLinksCount}}</td>
+                    <td>{{.ExternalLinksCount}}</td>
+                    <td>{{.InaccessibleLinksCount}}</td>
+                    <td>{{.HasLogin}}</td>
+                </tr>
+                {{end}}
+            </table>
+            {{else}}
+                <p>There's nothing to see here... yet!</p>
+            {{end}}
+{{end}}

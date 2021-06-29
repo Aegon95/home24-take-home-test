@@ -1,0 +1,23 @@
+{{template "base" .}}
+
+{{define "title"}}Home{{end}}
+
+{{define "main"}}
+        <form action='/submit' method='POST' novalidate>
+            {{with .Form}}
+                <div>
+                    <label>URL:</label>
+                    {{with .Errors.Get "url"}}
+                        <label class='error'>{{.}}</label>
+                    {{end}}
+                    <input type='text' name='url' value='{{.Get "name"}}'>
+                </div>
+
+                <div>
+                    <input type='submit' value='Submit'>
+                </div>
+            {{end}}
+        </form>
+
+
+{{end}}
